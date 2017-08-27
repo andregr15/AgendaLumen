@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- As 3 meta tags acima *devem* vir em primeiro lugar dentro do `head`; qualquer outro conteúdo deve vir *após* essas tags -->
-    <title>Tecno Agenda</title>
+    <title>Tecno Agenda @yield('title')</title>
 
     <!-- Última versão CSS compilada e minificada -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -31,7 +31,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">TecnoAgenda</a>
+                <a class="navbar-brand" href="{{ route('agenda.index') }}">TecnoAgenda</a>
             </div>
 
 
@@ -42,7 +42,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">Cadastrar<span class="sr-only"></span></a></li>
+                    <li><a href="{{ route('agenda.cadastro') }}">Cadastrar<span class="sr-only"></span></a></li>
                 </ul>
                 <form class="navbar-form">
                     <div class="form-group" style="display:inline;">
@@ -58,9 +58,7 @@
 
     <div class="container" style="width:100%">
         <div class="jumbotron text-center">
-            <h1>Olá, mundo!</h1>
-            <p>...</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+            @yield('content')
         </div>
     </div>
 

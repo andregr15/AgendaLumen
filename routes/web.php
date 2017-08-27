@@ -12,3 +12,5 @@
 */
 
 $app->get('/', ['as' => 'agenda.index', 'uses'=>'AgendaController@index']);
+
+$app->get('/cadastro', ['as' => 'agenda.cadastro', 'uses'=>'AgendaController@cadastro']);
