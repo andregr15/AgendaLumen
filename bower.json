@@ -1,0 +1,25 @@
+{
+  "name": "TecnoAgenda",
+  "description": "Agenda Telefônica",
+  "main": "",
+  "authors": [
+    "André Rodrigues"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Agenda"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "fontawesome#^4.7.0"
+  }
+}
