@@ -1,9 +1,15 @@
 @extends('layout')
 
 @section('content')
-    @foreach($pessoas as $pessoa)
-        <div class="col-md-6">
-            @include('partials.contato')
+    @if(!isset($pessoas) || empty($pessoas) || count($pessoas) == 0)
+        <div class="alert alert-warning text-center">
+            <strong>A busca não retornou resultados!</strong>
         </div>
-    @endforeach
+    @else
+        @foreach($pessoas as $pessoa)
+            <div class="col-md-6">
+                @include('partials.contato')
+            </div>
+        @endforeach
+    @endif
 @endsection
