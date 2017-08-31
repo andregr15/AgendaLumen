@@ -1,7 +1,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">
-            <i class="{{$pessoa->sexo == 'F' ? 'fa fa-female' : 'fa fa-male'}}"></i> 
+            <i class="{{$pessoa->sexo == 'F' ? 'fa fa-female' : 'fa fa-male'}}"></i>
             {{ $pessoa->apelido }}
             <span class="pull-right">
                 <a href="#" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-edit"></i></a>
