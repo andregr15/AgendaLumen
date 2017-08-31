@@ -1,7 +1,11 @@
 @extends('layout')
 
 @section('content')
-    @if(!isset($pessoas) || empty($pessoas) || count($pessoas) == 0)
+    @if(!isset($pessoas))
+        <div class="alert alert-warning text-center">
+            <strong>Contato excluído com sucesso!</strong>
+        </div>
+    @elseif(count($pessoas) == 0)
         <div class="alert alert-warning text-center">
             <strong>A busca não retornou resultados!</strong>
         </div>

@@ -13,6 +13,10 @@
 
 $app->get('/', ['as' => 'agenda.index', 'uses'=>'AgendaController@index']);
 
-$app->get('/{letra}', ['as' => 'agenda.letra', 'uses'=>'AgendaController@index']);
+$app->get('/excluir', ['as' => 'agenda.excluir', 'uses'=>'AgendaController@excluir']);
+
+$app->get('/excluirTelefone', ['as' => 'agenda.excluirTelefone', 'uses'=>'AgendaController@excluirTelefone']);
 
 $app->post('/pesquisa', ['as' => 'agenda.pesquisa', 'uses'=>'AgendaController@pesquisa']);
+
+$app->get('/{letra}', ['as' => 'agenda.letra', 'uses'=>'AgendaController@index']);

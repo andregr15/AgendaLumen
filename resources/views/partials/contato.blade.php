@@ -5,7 +5,7 @@
             {{ $pessoa->apelido }}
             <span class="pull-right">
                 <a href="#" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-edit"></i></a>
-                <a href="#" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Apagar"><i class="fa fa-minus-circle"></i></a>
+                <a href="{{ route('agenda.excluir', ['id'=>$pessoa->id]) }}" class="btn btn-danger btn-xs confirmacao" data-toggle="tooltip" data-placement="top" title="Apagar"><i class="fa fa-minus-circle"></i></a>
             </span>
         </h3>
     </div>
@@ -17,7 +17,7 @@
                     <td>{{ $telefone->descrição }}</td>
                     <td>{{ $telefone->numero }}</td>
                     <td>
-                        <a href="#" class="text-danger"><i class="fa fa-minus-circle" data-toggle="tooltip" data-placement="top" title="Apagar"></i></a>
+                        <a href="{{ route('agenda.excluirTelefone', ['id'=>$telefone->id]) }}" class="text-danger confirmacao-telefone"><i class="fa fa-minus-circle" data-toggle="tooltip" data-placement="top" title="Apagar"></i></a>
                     </td>
                 </tr>
             @endforeach
