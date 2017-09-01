@@ -12,7 +12,7 @@ class AgendaController extends Controller{
     }
 
     function index($letra = 'A'){
-        $pessoas = Pessoa::where('apelido', 'ilike', $letra.'%')->get();
+        $pessoas = Pessoa::where('apelido', 'like', $letra.'%')->orWhere('apelido', 'like', strtolower($letra).'%')->get();
         return view('agenda', ['pessoas'=>$pessoas]);
     }
 }
