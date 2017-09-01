@@ -21,13 +21,13 @@
         <div class="col-lg-12 page-header">
             <h1>
                 TecnoAgenda<br />
-                <small><i class="glyphicon glyphicon-phone-alt"> Agenda Telefônica</i></small>
+                <small><i class="glyphicon glyphicon-phone-alt text-primary"> Agenda Telefônica</i></small>
                 <span class="pull-right">
                     <form class="form-inline" action="{{ route('agenda.pesquisa') }}" method="post">
                         <div class="input-group">
                           <input type="text" class="form-control" name="pesquisa" placeholder="Pesquisar Contato...">
                           <span class="input-group-btn">
-                            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                            <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
                           </span>
                         </div><!-- /input-group -->
                     </form>

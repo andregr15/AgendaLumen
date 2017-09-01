@@ -13,9 +13,11 @@
 
 $app->get('/', ['as' => 'agenda.index', 'uses'=>'AgendaController@index']);
 
-$app->get('/excluir', ['as' => 'agenda.excluir', 'uses'=>'AgendaController@excluir']);
+$app->get('/delete', ['as' => 'pessoa.delete', 'uses'=>'PessoaController@delete']);
 
-$app->get('/excluirTelefone', ['as' => 'agenda.excluirTelefone', 'uses'=>'AgendaController@excluirTelefone']);
+$app->delete('/destroy', ['as' => 'pessoa.destroy', 'uses'=>'PessoaController@destroy']);
+
+$app->get('/destroyTelefone', ['as' => 'telefone.destroy', 'uses'=>'TelefoneController@destroy']);
 
 $app->post('/pesquisa', ['as' => 'agenda.pesquisa', 'uses'=>'AgendaController@pesquisa']);
 
