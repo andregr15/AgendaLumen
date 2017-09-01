@@ -5,7 +5,7 @@
             {{ $pessoa->apelido }}
             <span class="pull-right">
                 <a href="#" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-edit"></i></a>
-                <a href="{{ route('pessoa.delete', ['id'=>$pessoa->id]) }}" class="btn btn-danger btn-xs confirmacao" data-toggle="tooltip" data-placement="top" title="Apagar"><i class="fa fa-times"></i></a>
+                <a href="{{ route('pessoa.delete', ['id'=>$pessoa->id]) }}" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Apagar"><i class="fa fa-times"></i></a>
             </span>
         </h3>
     </div>

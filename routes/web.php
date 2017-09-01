@@ -17,7 +17,9 @@ $app->get('/delete/{id}', ['as' => 'pessoa.delete', 'uses'=>'PessoaController@de
 
 $app->delete('/destroy', ['as' => 'pessoa.destroy', 'uses'=>'PessoaController@destroy']);
 
-$app->get('/destroyTelefone', ['as' => 'telefone.destroy', 'uses'=>'TelefoneController@destroy']);
+$app->get('/deleteTelefone/{id}', ['as' => 'telefone.delete', 'uses'=>'TelefoneController@delete']);
+
+$app->delete('/destroyTelefone', ['as' => 'telefone.destroy', 'uses'=>'TelefoneController@destroy']);
 
 $app->post('/pesquisa', ['as' => 'agenda.pesquisa', 'uses'=>'AgendaController@pesquisa']);
 

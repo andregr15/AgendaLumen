@@ -11,7 +11,7 @@ class AgendaController extends Controller{
         return view('agenda', ['pessoas'=>$pessoas]);
     }
 
-    function index($letra = "A"){
+    function index($letra = 'A'){
         $pessoas = Pessoa::where('apelido', 'like', $letra.'%')->get();
         return view('agenda', ['pessoas'=>$pessoas]);
     }

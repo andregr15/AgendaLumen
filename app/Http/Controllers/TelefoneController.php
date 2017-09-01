@@ -14,11 +14,16 @@ use Illuminate\Http\Request;
 
 class TelefoneController extends Controller {
 
+    function delete($id){
+        $telefone = Telefone::find($id);
+        $pessoa =$telefone->pessoa;
+        return view('telefone.delete', ['telefone'=>$telefone, 'pessoa'=>$pessoa]);
+    }
+
     function destroy(Request $request){
         $telefone = Telefone::find($request->get('id'));
-        $pessoa = array(Pessoa::find($telefone->pessoa_id));
+        $pessoa = array($telefone->pessoa);
         $telefone->delete();
-
         return view('agenda', ['pessoas'=>$pessoa]);
     }
 }

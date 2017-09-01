@@ -25,4 +25,8 @@ class Telefone extends Model
     public function getNumeroAttribute(){
         return "{$this->codpaís} ({$this->ddd}) {$this->prefixo}-{$this->sufixo}";
     }
+
+    public function pessoa(){
+        return $this->belongsTo(Pessoa::class);
+    }
 }
