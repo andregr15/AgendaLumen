@@ -13,7 +13,7 @@
 
 $app->get('/', ['as' => 'agenda.index', 'uses'=>'AgendaController@index']);
 
-$app->get('/delete', ['as' => 'pessoa.delete', 'uses'=>'PessoaController@delete']);
+$app->get('/delete/{id}', ['as' => 'pessoa.delete', 'uses'=>'PessoaController@delete']);
 
 $app->delete('/destroy', ['as' => 'pessoa.destroy', 'uses'=>'PessoaController@destroy']);
 

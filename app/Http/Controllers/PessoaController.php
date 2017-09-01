@@ -13,14 +13,13 @@ use Illuminate\Http\Request;
 
 class PessoaController extends Controller{
 
-    function delete(Request $request){
-        $pessoa=Pessoa::find($request->get('id'));
-
-        return view('pessoa.delete', ['pessoas'=>$pessoa]);
+    function delete($id){
+        $pessoa=Pessoa::find($id);
+        return view('pessoa.delete', ['pessoa'=>$pessoa]);
     }
 
     function destroy(Request $request){
         Pessoa::find($request->get('id'))->delete();
-        return view('agenda', ['pessoas'=>null]);
+        return redirect()->route('agenda.index');
     }
 }

@@ -7,7 +7,7 @@
     <!-- As 3 meta tags acima *devem* vir em primeiro lugar dentro do `head`; qualquer outro conteúdo deve vir *após* essas tags -->
     <title>TecnoAgenda</title>
 
-    <link href="css/app.css" rel="stylesheet">
+    <link href="{{url('css/app.css')}}" rel="stylesheet">
 
     <!-- HTML5 shim e Respond.js para suporte no IE8 de elementos HTML5 e media queries -->
     <!-- ALERTA: Respond.js não funciona se você visualizar uma página file:// -->
@@ -53,6 +53,6 @@
     </div>
 
 
-    <script src="js/scripts.js"></script>
+    <script src="{{url('js/scripts.js')}}"></script>
 </body>
 </html>
