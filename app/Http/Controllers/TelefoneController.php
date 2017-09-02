@@ -23,9 +23,11 @@ class TelefoneController extends Controller {
 
     function destroy(Request $request){
         $telefone = Telefone::find($request->get('id'));
-        $pessoa = array($telefone->pessoa);
+        $pessoa = $telefone->pessoa;
         $telefone->delete();
-        return view('agenda', ['pessoas'=>$pessoa]);
+
+        $letra = strtoupper(substr($pessoa->apelido, 0, 1));
+        return redirect()->route('agenda.letra', ['letra' => $letra]);
     }
 
     function create($pessoaId){
@@ -54,6 +56,33 @@ class TelefoneController extends Controller {
         $telefone->save();
 
         $letra = strtoupper(substr($pessoa->apelido, 0, 1));
+        return redirect()->route('agenda.letra', ['letra' => $letra]);
+    }
+
+    function edit($id){
+        $telefone = Telefone::find($id);
+        return view('telefone.edit', ['telefone'=>$telefone]);
+    }
+
+    function update(Request $request){
+        $telefone = Telefone::find($request->id);
+        $telefone->fill($request->all());
+
+        $validator = Validator::make($request->all(), [
+            'descrição' => 'required|min:3|max:50',
+            'codpaís' => 'required|min:2|max:5',
+            'ddd' => 'required|integer',
+            'prefixo' => 'required|integer',
+            'sufixo' => 'required|integer',
+        ]);
+
+        if($validator->fails()){
+            return view('telefone.edit', ['errors' => $validator->errors(), 'telefone' => $telefone]);
+        }
+
+        $telefone->save();
+
+        $letra = strtoupper(substr($telefone->pessoa->apelido, 0, 1));
         return redirect()->route('agenda.letra', ['letra' => $letra]);
     }
 }

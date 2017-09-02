@@ -89,6 +89,16 @@ $app->post('/telefone/store', [
     'uses'=> 'TelefoneController@store'
 ]);
 
+$app->get('/telefone/edit/{id}', [
+    'as' => 'telefone.edit',
+    'uses'=> 'TelefoneController@edit'
+]);
+
+$app->put('/telefone/update', [
+    'as' => 'telefone.update',
+    'uses'=> 'TelefoneController@update'
+]);
+
 
 
 
