@@ -1,3 +1,4 @@
+
 <p></p><a href="#" class="label label-primary">Novo Telefone</a></p>
 <table class="table table-hover">
     @foreach($telefones as $telefone)

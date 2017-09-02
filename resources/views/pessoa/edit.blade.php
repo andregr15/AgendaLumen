@@ -44,5 +44,7 @@
             </div>
         @endif
     </div>
-    @include('partials.telefones', ['telefones'=>$pessoa->telefones])
+    <div class="col-md-12">
+        @include('partials.telefones', ['telefones'=>$pessoa->telefones])
+    </div>
 @endsection
