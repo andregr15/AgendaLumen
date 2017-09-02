@@ -2,33 +2,34 @@
 
 @section('content')
     <div class="col-md-6">
-        <form action="{{route('telefone.store')}}" method="post" class="form-horizontal">
+        <h4>Novo telefone para o contato {{$pessoa->nome . ' - ' . $pessoa->apelido}}</h4>
+        <form action="{{route('telefone.store', ['pessoaId'=>$pessoa->id])}}" method="post" class="form-horizontal">
             <div class="form-group">
-                <label for="descricao" class="col-sm-2 control-label">Descrição</label>
+                <label for="descrição" class="col-sm-2 control-label">Descrição</label>
                 <div class="col-sm-10">
-                    <input type="text" name="descricao" class="form-control" id="descricao" placeholder="Descrição" value="@if(isset($old)&& isset($old['descricao'])){{$old['descricao']}}@endif">
+                    <input type="text" name="descrição" class="form-control" id="descrição" placeholder="Descrição" maxlength="50" value="@if(isset($old)&& isset($old['descricao'])){{$old['descricao']}}@endif">
                 </div>
             </div>
             <div class="form-group">
-                <label for="codpais" class="col-sm-2 control-label">Cód. País</label>
-                <div class="col-sm-10">
-                    <input type="text" name="codpais" class="form-control" id="codpais" placeholder="Código do país" value="@if(isset($old)&& isset($old['codpaís'])){{$old['codpaís']}}@endif">
+                <label for="codpaís" class="col-sm-2 control-label">Cód. País</label>
+                <div class="col-sm-4">
+                    <input type="text" name="codpaís" class="form-control" id="codpaís" placeholder="Código do país" value="@if(isset($old)&& isset($old['codpaís'])){{$old['codpaís']}}@endif">
+                </div>
+
+                <label for="ddd" class="col-sm-2 control-label">DDD</label>
+                <div class="col-sm-4">
+                    <input type="text" name="ddd" class="form-control" id="ddd" placeholder="DDD" maxlength="2" value="@if(isset($old)&& isset($old['ddd'])){{$old['ddd']}}@endif">
                 </div>
             </div>
             <div class="form-group">
-                <label for="apelido" class="col-sm-2 control-label">Apelido</label>
-                <div class="col-sm-10">
-                    <input type="text" name="apelido" class="form-control" id="apelido" placeholder="Apelido" value="@if(isset($old)&& isset($old['apelido'])){{$old['apelido']}}@endif">
+                <label for="prefixo" class="col-sm-2 control-label">Prefixo</label>
+                <div class="col-sm-4">
+                    <input type="text" name="prefixo" class="form-control" id="prefixo" placeholder="Prefixo" value="@if(isset($old)&& isset($old['prefixo'])){{$old['prefixo']}}@endif">
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="sexo" value="F" @if(isset($old)&& isset($old['sexo'])){{$old['sexo'] == 'F' ? 'checked="true"' : ''}}@endif/> <i class="fa fa-female"></i><br />
-                            <input type="radio" name="sexo" value="M" @if(isset($old)&& isset($old['sexo'])){{$old['sexo'] == 'M' ? 'checked="true"' : ''}}@endif//> <i class="fa fa-male"></i>
-                        </label>
-                    </div>
+
+                <label for="sufixo" class="col-sm-2 control-label">Sufixo</label>
+                <div class="col-sm-4">
+                    <input type="text" name="sufixo" class="form-control" id="sufixo" placeholder="Sufixo" value="@if(isset($old)&& isset($old['sufixo'])){{$old['sufixo']}}@endif">
                 </div>
             </div>
             <div class="form-group">

@@ -8,6 +8,7 @@
 
 namespace TecnoAgenda\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
 use TecnoAgenda\Entities\Pessoa;
 use TecnoAgenda\Entities\Telefone;
 use Illuminate\Http\Request;
@@ -25,5 +26,34 @@ class TelefoneController extends Controller {
         $pessoa = array($telefone->pessoa);
         $telefone->delete();
         return view('agenda', ['pessoas'=>$pessoa]);
+    }
+
+    function create($pessoaId){
+        $pessoa = Pessoa::find($pessoaId);
+        return view('telefone.create', ['pessoa'=>$pessoa]);
+    }
+
+    function store(Request $request)
+    {
+        $pessoa = Pessoa::find($request->pessoaId);
+
+        $validator = Validator::make($request->all(), [
+                'descrição' => 'required|min:3|max:50',
+                'codpaís' => 'required|min:2|max:5',
+                'ddd' => 'required|integer',
+                'prefixo' => 'required|integer',
+                'sufixo' => 'required|integer',
+            ]);
+
+        if($validator->fails()){
+            return view('telefone.create', ['errors' => $validator->errors(), 'old' => $request->all(), 'pessoa'=>$pessoa]);
+        }
+
+        $telefone = new Telefone($request->all());
+        $telefone->pessoa_id = $pessoa->id;
+        $telefone->save();
+
+        $letra = strtoupper(substr($pessoa->apelido, 0, 1));
+        return redirect()->route('agenda.letra', ['letra' => $letra]);
     }
 }

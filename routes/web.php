@@ -30,12 +30,12 @@ $app->get('/{letra}', [
  * Contato
  */
 
-$app->get('/contato/novo', [
+$app->get('/contato/create', [
     'as'=>'pessoa.create',
     'uses'=>'PessoaController@create'
 ]);
 
-$app->post('/contato', [
+$app->post('/contato/store', [
     'as'=>'pessoa.store',
     'uses'=>'PessoaController@store'
 ]);
@@ -78,6 +78,17 @@ $app->delete('/telefone/destroy', [
     'as' => 'telefone.destroy',
     'uses'=>'TelefoneController@destroy'
 ]);
+
+$app->get('/telefone/create/{pessoaId}', [
+   'as' => 'telefone.create',
+   'uses'=> 'TelefoneController@create'
+]);
+
+$app->post('/telefone/store', [
+    'as' => 'telefone.store',
+    'uses'=> 'TelefoneController@store'
+]);
+
 
 
 
