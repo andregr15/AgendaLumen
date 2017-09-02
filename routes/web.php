@@ -11,6 +11,25 @@
 |
 */
 
+/*
+ * Agenda
+ */
+
+$app->get('/', [
+    'as' => 'agenda.index',
+    'uses'=>'AgendaController@index'
+]);
+
+$app->get('/{letra}', [
+    'as' => 'agenda.letra',
+    'uses'=>'AgendaController@index'
+]);
+
+
+/*
+ * Contato
+ */
+
 $app->get('/contato/novo', [
     'as'=>'pessoa.create',
     'uses'=>'PessoaController@create'
@@ -21,13 +40,10 @@ $app->post('/contato', [
     'uses'=>'PessoaController@store'
 ]);
 
-
-
-$app->get('/', [
-    'as' => 'agenda.index',
-    'uses'=>'AgendaController@index'
+$app->post('/contato/pesquisa', [
+    'as' => 'agenda.pesquisa',
+    'uses'=>'AgendaController@pesquisa'
 ]);
-
 
 $app->get('/contato/delete/{id}', [
     'as' => 'pessoa.delete',
@@ -39,6 +55,19 @@ $app->delete('/contato/destroy', [
     'uses'=>'PessoaController@destroy'
 ]);
 
+$app->get('/contato/edit/{id}',[
+    'as'=>'pessoa.edit',
+    'uses'=>'PessoaController@edit'
+]);
+
+$app->put('/contato/update/',[
+    'as'=>'pessoa.update',
+    'uses'=>'PessoaController@update'
+]);
+
+/*
+ * Telefone
+ */
 
 $app->get('/telefone/delete/{id}', [
     'as' => 'telefone.delete',
@@ -51,12 +80,5 @@ $app->delete('/telefone/destroy', [
 ]);
 
 
-$app->post('/contato/pesquisa', [
-    'as' => 'agenda.pesquisa',
-    'uses'=>'AgendaController@pesquisa'
-]);
 
-$app->get('/{letra}', [
-    'as' => 'agenda.letra',
-    'uses'=>'AgendaController@index'
-]);
+
