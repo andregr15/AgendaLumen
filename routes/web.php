@@ -99,6 +99,40 @@ $app->put('/telefone/update', [
     'uses'=> 'TelefoneController@update'
 ]);
 
+/*
+ * Emails
+ */
+
+$app->get('/email/delete/{id}', [
+    'as' => 'email.delete',
+    'uses'=>'EmailController@delete'
+]);
+
+$app->delete('/email/destroy', [
+    'as' => 'email.destroy',
+    'uses'=>'EmailController@destroy'
+]);
+
+$app->get('/email/create/{pessoaId}', [
+    'as' => 'email.create',
+    'uses'=> 'EmailController@create'
+]);
+
+$app->post('/email/store', [
+    'as' => 'email.store',
+    'uses'=> 'EmailController@store'
+]);
+
+$app->get('/email/edit/{id}', [
+    'as' => 'email.edit',
+    'uses'=> 'EmailController@edit'
+]);
+
+$app->put('/email/update', [
+    'as' => 'email.update',
+    'uses'=> 'EmailController@update'
+]);
+
 
 
 

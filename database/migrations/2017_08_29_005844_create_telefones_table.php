@@ -15,7 +15,7 @@ class CreateTelefonesTable extends Migration
     {
         Schema::create('telefones', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('descrição', 50);
+            $table->string('descrição', 50)->nullable();
             $table->string('codpaís');
             $table->integer('ddd');
             $table->integer('prefixo');

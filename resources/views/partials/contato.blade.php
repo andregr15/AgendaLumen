@@ -22,7 +22,9 @@
                 <div role="tabpanel" class="tab-pane fade in active" id="telefones{{$pessoa->id}}">
                     @include('partials.telefones', ['telefones'=>$pessoa->telefones, 'pessoaId'=>$pessoa->id])
                 </div>
-                <div role="tabpanel" class="tab-pane fade" id="emails{{$pessoa->id}}">teste</div>
+                <div role="tabpanel" class="tab-pane fade" id="emails{{$pessoa->id}}">
+                    @include('partials.emails', ['emails'=>$pessoa->emails, 'pessoaId'=>$pessoa->id])
+                </div>
             </div>
 
         </div>

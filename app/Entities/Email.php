@@ -15,7 +15,7 @@ class Email extends Model
     protected $table = 'emails';
 
     protected $fillable = [
-        'descrição',
+        'descricao',
         'email'
     ];
 

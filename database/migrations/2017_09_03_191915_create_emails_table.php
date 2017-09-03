@@ -15,11 +15,11 @@ class CreateEmailsTable extends Migration
     {
         Schema::create('emails', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('descrição', 50);
-            $table->string('email');
+            $table->string('descricao', 50)->nullable();
+            $table->string('email')->unique();
             $table->timestamps();
 
-            $table->integer('pessoa_id')->unique();
+            $table->integer('pessoa_id')->unsigned();
             $table->foreign('pessoa_id')->references('id')->on('pessoas')->onUpdate('cascade')->onDelete('cascade');
         });
     }
