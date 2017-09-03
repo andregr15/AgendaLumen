@@ -11,6 +11,21 @@
     </div>
     <div class="panel-body">
         <h3>{{ $pessoa->nome }}</h3>
-        @include('partials.telefones', ['telefones'=>$pessoa->telefones, 'pessoaId'=>$pessoa->id])
+        <!-- Nav tabs -->
+        <div id="tabs">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#telefones{{$pessoa->id}}" aria-controls="telefones" role="tab" data-toggle="tab">Telefones</a></li>
+                <li role="presentation"><a href="#emails{{$pessoa->id}}" aria-controls="emails{{$pessoa->id}}" role="tab" data-toggle="tab">E-mails</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="telefones{{$pessoa->id}}">
+                    @include('partials.telefones', ['telefones'=>$pessoa->telefones, 'pessoaId'=>$pessoa->id])
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="emails{{$pessoa->id}}">teste</div>
+            </div>
+
+        </div>
+
     </div>
 </div>

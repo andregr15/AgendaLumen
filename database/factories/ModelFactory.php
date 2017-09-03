@@ -36,3 +36,11 @@ $factory->define(\TecnoAgenda\Entities\Telefone::class, function(\Faker\Generato
         'pessoa_id'=>$faker->numberBetween(1, 30)
     ];
 });
+
+$factory->define(\TecnoAgenda\Entities\Email::class, function(\Faker\Generator $faker){
+    return [
+        'descrição'=>$faker->randomElement(['Comercial', 'Pessoal']),
+        'email'=>$faker->freeEmail,
+        'pessoa_id'=>$faker->numberBetween(1, 30)
+    ];
+});
